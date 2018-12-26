@@ -12,10 +12,11 @@ export class AppComponent implements OnInit {
     const toDataURL = url => fetch(url)
     .then(response => response.blob())
     .then(blob => new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onloadend = () => resolve(reader.result)
-      reader.onerror = reject
-      reader.readAsDataURL(blob)
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+      console.log(reader);
     }));
 
 
@@ -24,5 +25,5 @@ export class AppComponent implements OnInit {
       console.log('RESULT:', dataUrl);
       this.imgFileData64 = dataUrl;
     })
-    }
+  }
 }
